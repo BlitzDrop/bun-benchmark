@@ -1,50 +1,50 @@
-# Benchmark de Rendimiento: Node.js vs Bun
+# Performance Benchmark: Node.js vs Bun
 
-Este documento detalla los pasos para realizar una prueba de carga en una aplicación Express utilizando la herramienta `oha`. El objetivo es comparar el rendimiento del servidor ejecutándose en Node.js frente a Bun.
+This document details the steps to perform a load test on an Express application using the `oha` tool. The goal is to compare the server performance running on Node.js versus Bun.
 
-## Requisitos
+## Requirements
 
-Para ejecutar esta prueba, asegúrate de tener instalados:
+To run this test, make sure you have the following installed:
 
 - Node.js
 - Bun
 - oha
 
-## Configuración Inicial
+## Initial Setup
 
-Antes de ejecutar las pruebas, instala las dependencias necesarias:
+Before running the tests, install the necessary dependencies:
 
 ```bash
 npm install
 ```
 
-## Ejecución de Pruebas
+## Test Execution
 
-A continuación se detalla cómo ejecutar el servidor y la prueba de estrés de 500,000 peticiones para cada entorno. 
+Below is detailed how to run the server and the 500,000-request stress test for each environment. 
 
-### 1. Prueba con Node.js
+### 1. Test with Node.js
 
-Paso 1: Inicia el servidor utilizando Node.js en una terminal.
+Step 1: Start the server using Node.js in a terminal.
 
 ```bash
 node express.mjs
 ```
 
-Paso 2: Abre una segunda terminal y lanza la prueba de carga con `oha`.
+Step 2: Open a second terminal and launch the load test with `oha`.
 
 ```bash
 oha http://localhost:3000 -n 500000 -H "Accept-Encoding: identity"
 ```
 
-### 2. Prueba con Bun
+### 2. Test with Bun
 
-Paso 1: Inicia el servidor utilizando Bun en una terminal.
+Step 1: Start the server using Bun in a terminal.
 
 ```bash
 bun run express.mjs
 ```
 
-Paso 2: En la segunda terminal, ejecuta exactamente la misma prueba de carga.
+Step 2: In the second terminal, run exactly the same load test.
 
 ```bash
 oha http://localhost:3000 -n 500000 -H "Accept-Encoding: identity"
